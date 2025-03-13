@@ -1,13 +1,13 @@
-🚀 PyLambda-EC2 Scheduler
+# 🚀 PyLambda-EC2 Scheduler
 
 ## Overview
 
-This project automates the **starting** of EC2 instances at regular intervals using **AWS Lambda** and **CloudWatch Events**. It leverages **Terraform** for infrastructure provisioning and IAM role assignments, ensuring a fully automated deployment. The Lambda function is written in **Python**, utilizing **Boto3** to interact with AWS services.
+This project automates the **starting** of EC2 instances at regular intervals using **AWS Lambda** and **EventBridge**. It leverages **Terraform** for infrastructure provisioning and IAM role assignments, ensuring a fully automated deployment. The Lambda function is written in **Python**, utilising **Boto3** to interact with AWS services.
 
 ## 🔧 Features
 
 - **Automated EC2 Start**: Lambda function starts EC2 instances every 60 minutes.
-- **Event-Driven Execution**: Triggered by AWS CloudWatch Events.
+- **Event-Driven Execution**: Triggered by AWS EventBridge.
 - **Logging & Monitoring**: Logs are stored in AWS CloudWatch for easy debugging.
 - **Infrastructure as Code**: Managed using Terraform for easy deployment and reproducibility.
 - **Full Automation**: Terraform automates provisioning, IAM role setup, and Lambda deployment.
@@ -15,21 +15,7 @@ This project automates the **starting** of EC2 instances at regular intervals us
 
 ## 🏗 Architecture
 
-```
-+----------------------+
-|  AWS CloudWatch     |  (Triggers every 60 minutes)
-+---------+----------+
-          |
-          v
-+----------------------+
-|  AWS Lambda         |  (Runs Python script to start EC2 instances)
-+---------+----------+
-          |
-          v
-+----------------------+
-|  AWS EC2 Instances  |  (EC2 instances are started)
-+----------------------+
-```
+![Pylambda-project-architecture](/images/Pylambda-project-architecture.png)
 
 ## 🛠 Prerequisites
 
@@ -62,7 +48,7 @@ git clone https://github.com/your-username/PyLambda-EC2-Scheduler.git
 cd PyLambda-EC2-Scheduler
 ```
 
-### 2️⃣ Initialize Terraform
+### 2️⃣ Initialise Terraform
 
 ```sh
 terraform init
@@ -78,7 +64,7 @@ This will:
 
 - Create the **IAM Role & Policy** for the Lambda function.
 - Deploy the **AWS Lambda Function** with the required permissions.
-- Set up a **CloudWatch Event Rule** to trigger the Lambda function every 60 minutes.
+- Set up an **EventBridge Rule** to trigger the Lambda function every 60 minutes.
 - Automatically package and deploy the **Python Lambda function code**.
 
 ### 4️⃣ Verify the Deployment
@@ -112,9 +98,9 @@ Modify the `main.tf` file to:
 - The Python script uses **Boto3** to start EC2 instances dynamically.
 - If the Lambda function needs dependencies, they must be packaged manually before deployment.
 
-## 📜 License
+## 📜 Licence
 
-This project is licensed under the **MIT License**.
+This project is licensed under the **MIT Licence**.
 
 ## 🤝 Contributing
 
