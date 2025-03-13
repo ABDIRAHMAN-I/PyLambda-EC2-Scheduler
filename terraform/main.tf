@@ -14,7 +14,7 @@ resource "aws_iam_policy" "lambda_policy" {
       {
         "Sid" : "VisualEditor0",
         "Effect" : "Allow",
-        "Action" : "ec2:*",
+        "Action" : "ec2:StartInstances",
         "Resource" : "*"
       },
       {
